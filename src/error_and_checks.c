@@ -6,7 +6,7 @@
 /*   By: akivioja <akivioja@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/22 14:48:06 by akivioja      #+#    #+#                 */
-/*   Updated: 2023/05/19 15:31:08 by akivioja      ########   odam.nl         */
+/*   Updated: 2023/05/19 15:56:48 by akivioja      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,18 @@ int	is_sorted(char **argv, int argc)
 int	large_int_check(int argc, char **argv)
 {
 	int		i;
+	int		index;
 	long	value;
 
 	i = 1;
+	index = 0;
 	while (i < argc)
 	{
 		value = 0;
-		while (*argv[i] >= '0' && *argv[i] <= '9')
+		while (argv[i][index] >= '0' && argv[i][index] <= '9')
 		{
-			value = value * 10 + (*argv[i] - '0');
-			argv[i]++;
+			value = value * 10 + (argv[i][index] - '0');
+			index++;
 		}
 		if (value > 2147483647)
 			return (-1);
