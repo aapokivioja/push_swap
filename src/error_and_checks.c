@@ -6,7 +6,7 @@
 /*   By: akivioja <akivioja@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/22 14:48:06 by akivioja      #+#    #+#                 */
-/*   Updated: 2023/05/19 15:56:48 by akivioja      ########   odam.nl         */
+/*   Updated: 2023/05/22 13:06:03 by akivioja      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,28 @@ int	is_sorted(char **argv, int argc)
 	return (-1);
 }
 
-int	large_int_check(int argc, char **argv)
+int	min_max_check(int argc, char **argv)
 {
 	int		i;
-	int		index;
-	long	value;
+	int		j;
+	long	num;
+	int		sign;
 
 	i = 1;
-	index = 0;
 	while (i < argc)
 	{
-		value = 0;
-		while (argv[i][index] >= '0' && argv[i][index] <= '9')
+		j = 0;
+		num = 0;
+		sign = 1;
+		if (argv[i][j] == '-')
 		{
-			value = value * 10 + (argv[i][index] - '0');
-			index++;
+			sign = -1;
+			j++;
 		}
-		if (value > 2147483647)
+		while (argv[i][j] >= '0' && argv[i][j] <= '9')
+			num = num * 10 + argv[i][j++] - '0';
+		num *= sign;
+		if (num > 2147483647 || num < -2147483648)
 			return (-1);
 		i++;
 	}
@@ -106,7 +111,7 @@ int	error_check(char **argv, int argc)
 		return (-1);
 	if (non_numeric(argv, argc) == -1)
 		return (-1);
-	if (large_int_check(argc, argv) == -1)
+	if (min_max_check(argc, argv) == -1)
 		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: akivioja <akivioja@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 17:35:40 by akivioja      #+#    #+#                 */
-/*   Updated: 2023/05/18 13:53:10 by akivioja      ########   odam.nl         */
+/*   Updated: 2023/05/22 13:02:20 by akivioja      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int	main(int argc, char **argv)
 {
 	push_swap(argv, argc);
+	exit(0);
 	return (0);
 }

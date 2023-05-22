@@ -6,7 +6,7 @@
 /*   By: akivioja <akivioja@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 17:35:44 by akivioja      #+#    #+#                 */
-/*   Updated: 2023/05/18 13:51:32 by akivioja      ########   odam.nl         */
+/*   Updated: 2023/05/22 12:48:44 by akivioja      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int	push_swap(char **argv, int argc)
 		five_items(&ahead, &bhead);
 	else
 		radix_sort(&ahead, &bhead, max_index);
+	ft_dlstclear(&ahead);
 	return (0);
 }

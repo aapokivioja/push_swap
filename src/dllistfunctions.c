@@ -6,7 +6,7 @@
 /*   By: akivioja <akivioja@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 17:35:32 by akivioja      #+#    #+#                 */
-/*   Updated: 2023/05/18 16:34:32 by akivioja      ########   odam.nl         */
+/*   Updated: 2023/05/22 13:01:00 by akivioja      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_dlstsize(t_stack *dlst)
 	return (count);
 }
 
-// works
+/* Didn't use
 t_stack	*ft_dlstlast(t_stack *dlst)
 {
 	t_stack	*temp;
@@ -94,20 +94,21 @@ t_stack	*ft_dlstlast(t_stack *dlst)
 		temp = temp->next;
 	return (temp);
 }
+*/
 
-/* Not needed in this projec but a nice function lol
 void	ft_dlstclear(t_stack **dlst)
 {
 	t_stack	*temp;
 	t_stack	*next;
 
 	temp = *dlst;
+	if (temp == NULL)
+		return ;
 	while (temp->next != *dlst)
 	{
 		next = temp->next;
 		free(temp);
 		temp = next;
 	}
+	free(temp);
 }
-
-*/
